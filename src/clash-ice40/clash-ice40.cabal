@@ -1,0 +1,31 @@
+name:                clash-ice40
+version:             0.0.0.0
+synopsis:            Utilities for CLaSH on the Lattice iCE40 FPGA.
+license:             BSD3
+author:              Austin Seipp
+maintainer:          aseipp@pobox.com
+copyright:           2016 Austin Seipp
+category:            Hardware
+build-type:          Simple
+cabal-version:       >= 1.10
+tested-with:         GHC == 7.10.3
+
+description:
+  Utilities to synthesize CLaSH code onto Lattice iCE40 FPGAs.
+
+--------------------------------------------------------------------------------
+
+library
+  default-language:  Haskell2010
+  ghc-options:       -Wall
+
+  exposed-modules:
+    CLaSH.Lattice.ICE40
+
+  other-extensions:
+    TemplateHaskell
+
+  build-depends:
+    base          >= 4.8     && < 5.0,
+    clash-prelude >= 0.10.14 && < 0.11,
+    file-embed    == 0.0.10

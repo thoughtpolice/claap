@@ -1,0 +1,10 @@
+with-compiler: ghc-7.10.3
+
+packages:
+  src/clash-ice40/*.cabal
+  src/mk/*.cabal
+
+package claap-build
+  -- Optimization isn't really necessary for Shake build systems,
+  -- and it makes the initial build faster
+  optimization: False

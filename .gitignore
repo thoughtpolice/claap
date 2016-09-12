@@ -1,0 +1,8 @@
+/build
+/.shake
+/dist*
+*.html
+*.exe
+*~
+*.o
+*.hi

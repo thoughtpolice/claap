@@ -1,0 +1,8 @@
+# 12mhz on-board oscillator
+set_io clk  J3
+# On-board LEDs
+set_io LED0 B5
+set_io LED1 B4
+set_io LED2 A2
+set_io LED3 A1
+set_io LED4 C5

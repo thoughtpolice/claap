@@ -1,0 +1,38 @@
+name:                claap-build
+version:             0.0.0.0
+synopsis:            Build system for CLAAP (CLaSH/AAP).
+license:             BSD3
+author:              Austin Seipp
+maintainer:          aseipp@pobox.com
+copyright:           2016 Austin Seipp
+category:            Development, Shake
+build-type:          Simple
+cabal-version:       >= 1.10
+tested-with:         GHC == 7.10.3
+
+--------------------------------------------------------------------------------
+
+executable mk
+  default-language:  Haskell2010
+  ghc-options:
+    -Wall
+    -rtsopts "-with-rtsopts=-I0 -qg -qb"
+    -threaded
+
+  main-is:           Build.hs
+  other-modules:
+    Config
+    Options
+    Tools.ArachnePNR
+    Tools.CLaSH
+    Tools.Extra
+    Tools.Icestorm
+    Tools.IVerilog
+    Tools.Yosys
+
+  build-depends:
+    base         >= 4.8     && < 5.0,
+    bytestring   >= 0.10.4  && < 0.11,
+    filepath     >= 1.0     && < 1.5,
+    shake        == 0.15.10,
+    transformers >= 0.4     && < 0.6
