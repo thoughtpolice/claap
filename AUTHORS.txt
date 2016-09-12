@@ -1,0 +1,9 @@
+Author, primary target of blame:
+
+  Austin Seipp <aseipp [@at] pobox [.dot] com>
+
+Special thanks to Clifford Wolf, author of Yosys, IceStorm, and picorv32 --
+without whom this project probably would have never happened, due to not having
+an inspiration (picorv32), nor being able to tolerate proprietary synthesis
+toolchains long enough to bother learning digital design.
+

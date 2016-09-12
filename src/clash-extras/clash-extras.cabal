@@ -1,0 +1,32 @@
+name:                clash-extras
+version:             0.0.0.0
+synopsis:            Extra utilities and modules for CLaSH
+license:             BSD3
+author:              Austin Seipp
+maintainer:          aseipp@pobox.com
+copyright:           2016 Austin Seipp
+category:            Hardware
+build-type:          Simple
+cabal-version:       >= 1.10
+tested-with:         GHC == 7.10.3
+
+--------------------------------------------------------------------------------
+
+library
+  default-language:  Haskell2010
+  ghc-options:       -Wall
+
+  exposed-modules:
+    CLaSH.Lattice.ICE40
+    CLaSH.Testbench.Fancy
+
+  other-extensions:
+    BangPatterns
+    ScopedTypeVariables
+    TemplateHaskell
+
+  build-depends:
+    base          >= 4.8     && < 5.0,
+    clash-prelude >= 0.11    && < 0.12,
+    deepseq       >= 1.4     && < 1.5,
+    file-embed    == 0.0.10

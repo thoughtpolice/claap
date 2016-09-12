@@ -1,0 +1,11 @@
+/build
+/.shake
+/src/mk/dist*
+/src/clash-extras/dist*
+*.html
+*.exe
+*~
+*.o
+*.hi
+.#*
+*#
