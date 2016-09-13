@@ -22,8 +22,7 @@ import Data.Typeable
 import Control.Exception
 import Control.Monad.IO.Class
 
-import Development.Shake
-import Development.Shake.Config
+import Development.Shake.Fancy
 
 data ICE40Device
   = HX1K  | HX8K

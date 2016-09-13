@@ -7,7 +7,7 @@ module Tools.Icestorm
 import Data.List  (isPrefixOf)
 import Text.Read
 
-import Development.Shake
+import Development.Shake.Fancy
 
 import Config
 
@@ -18,7 +18,7 @@ icepack out inp = do
   exe <- getIcepack
   need [ inp ]
 
-  cmd [exe] [inp] [out]
+  cmdWrap exe $ cmd [exe] [inp] [out]
 
 icetime :: Bool            -- ^ Should the @icetime@ command be Traced?
         -> Maybe Int       -- ^ Optional timing constraint check (in Mhz)
@@ -47,7 +47,7 @@ icetime traceCmd check out inp = do
         -- in the error message.
         ++ [ WithStdout True ]
 
-  Stdout output <- cmd cmdOpts [exe] opts
+  Stdout output <- cmdWrap exe $ cmd cmdOpts [exe] opts
   -- Optionally write the output
   maybe (return ()) (flip writeFile' output) out
 
@@ -99,4 +99,4 @@ iceprog inp = do
   let opt = case mode of
         SRAM -> "-S"
         SPI  -> ""
-  cmd [ EchoStderr False ] [exe] [opt] [inp]
+  cmdWrap exe $ cmd [ EchoStderr False ] [exe] [opt] [inp]

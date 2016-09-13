@@ -7,7 +7,7 @@ module Tools.Yosys
   , yosys
   ) where
 
-import Development.Shake
+import Development.Shake.Fancy
 
 import Config
 
@@ -52,7 +52,7 @@ yosys config srcs =
 
     yo <- getYosys
     need srcs
-    cmd [ EchoStdout False, EchoStderr False ]
+    cmdWrap yo $ cmd [ EchoStdout False, EchoStderr False ]
       [yo] verbosity logOpts ["-s", scriptFile]
 
   where

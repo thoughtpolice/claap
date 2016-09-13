@@ -5,9 +5,8 @@ module Main
 import Control.Monad (void)
 import Data.List (isInfixOf, isSuffixOf)
 
-import Development.Shake
+import Development.Shake.Fancy
 import Development.Shake.FilePath
-import Development.Shake.Config
 
 import Tools.Yosys
 import Tools.Icestorm
@@ -187,21 +186,21 @@ main = shakeArgs myShakeOpts $ do
   -- CLaSH simulation tests
   phony "test-clashsim" $ do
     need [ simulator ]
-    () <- testCmd simulator
+    () <- cmdWrap simulator $ testCmd simulator
     putNormal $ "SIMULATION (CLaSH):\tOK"
 
   -----------------------
   -- Icarus Verilog tests
   phony "test-iverilog" $ do
     need [ vsimulate ]
-    () <- testCmd vsimulate
+    () <- cmdWrap vsimulate $ testCmd vsimulate
     putNormal $ "SIMULATION (iverilog):\tOK"
 
   ------------------
   -- Verilator tests
   phony "test-verilator" $ do
     --need [ vsimulate2 ]
-    --() <- testCmd vsimulate2
+    --() <- cmdWrap vsimulate2 $ testCmd vsimulate2
     putNormal $ "SIMULATION (verilator):\tOK"
 
   ----------------------------------

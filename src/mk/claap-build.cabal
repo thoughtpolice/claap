@@ -22,6 +22,7 @@ executable mk
   main-is:           Build.hs
   other-modules:
     Config
+    Development.Shake.Fancy
     Options
     Tools.ArachnePNR
     Tools.CLaSH
@@ -31,8 +32,10 @@ executable mk
     Tools.Yosys
 
   build-depends:
-    base         >= 4.8     && < 5.0,
-    bytestring   >= 0.10.4  && < 0.11,
-    filepath     >= 1.0     && < 1.5,
-    shake        == 0.15.10,
-    transformers >= 0.4     && < 0.6
+    base              >= 4.8     && < 5.0,
+    bytestring        >= 0.10.4  && < 0.11,
+    concurrent-output >= 1.7     && < 1.8,
+    extra             >= 1.5     && < 2.0,
+    filepath          >= 1.0     && < 1.5,
+    shake             == 0.15.10,
+    transformers      >= 0.4     && < 0.6

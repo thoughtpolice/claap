@@ -3,7 +3,7 @@ module Tools.IVerilog
   , vvp
   ) where
 
-import Development.Shake
+import Development.Shake.Fancy
 
 import Config
 
@@ -14,7 +14,7 @@ iverilog out srcs = do
   exe <- getIVerilog
 
   need srcs
-  cmd [exe] ["-o", out] srcs
+  cmdWrap exe $ cmd [exe] ["-o", out] srcs
 
 vvp :: FilePath
     -> [String]
@@ -23,4 +23,4 @@ vvp inp args = do
   exe <- getVVP
 
   need [ inp ]
-  cmd [exe] args [inp]
+  cmdWrap exe $ cmd [exe] args [inp]

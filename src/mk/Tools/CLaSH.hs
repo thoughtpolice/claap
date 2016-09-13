@@ -6,7 +6,7 @@ module Tools.CLaSH
   , clash
   ) where
 
-import Development.Shake
+import Development.Shake.Fancy
 
 import Config
 
@@ -37,7 +37,7 @@ clash ClashOpts{..} inp = do
         SystemVerilog x -> [ "--systemverilog", "-clash-hdldir", x ]
         VHDL x          -> [ "--vhdl", "-clash-hdldir", x ]
 
-  cmd [ EchoStdout False, EchoStderr False ] clashExe "-v0"
+  cmdWrap clashExe $ cmd [ EchoStdout False, EchoStderr False ] clashExe "-v0"
     (  maybe [] (\x -> ["-main-is", x]) clashMainIs
     ++ [ "-hidir", clashObjdir ]
     ++ [ "-odir",  clashObjdir ]

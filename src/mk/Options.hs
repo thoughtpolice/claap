@@ -2,7 +2,7 @@ module Options
   ( myShakeOpts
   ) where
 
-import Development.Shake
+import Development.Shake.Fancy
 
 -- | Shake build options.
 myShakeOpts :: ShakeOptions

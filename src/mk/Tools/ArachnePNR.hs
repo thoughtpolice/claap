@@ -2,7 +2,7 @@ module Tools.ArachnePNR
   ( arachne_pnr
   ) where
 
-import Development.Shake
+import Development.Shake.Fancy
 
 import Config
 
@@ -26,7 +26,7 @@ arachne_pnr pins olog out inp = do
         TQ144 -> "tq144"
         CT256 -> "ct256"
 
-  Stderr output <- cmd [ EchoStderr False ] [arachne]
+  Stderr output <- cmdWrap arachne $ cmd [ EchoStderr False ] [arachne]
     [ "-d", dopt
     , "-P", popt
     , "-p", pins
